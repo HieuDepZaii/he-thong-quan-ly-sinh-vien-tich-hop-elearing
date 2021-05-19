@@ -8,13 +8,13 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                        @if (Auth::user()->level == 1)
+                        {{-- @if (Auth::user()->level == 1)
                             học viên
                         @elseif(Auth::user()->level ==2)
                             giảng viên
                         @else
                             Admin
-                        @endif
+                        @endif --}}
                         @if (session('error'))
                             <div class="alert alert-danger">
                                 {{ session('error') }}
@@ -39,11 +39,7 @@
                         ?> <br>
                         You are logged in!
                         <br>
-                        <button>
-                            <a
-                                href="{{ route('user.suaThongTin', ['id' => \Illuminate\Support\Facades\Auth::user()->id]) }}">chỉnh
-                                sửa thông tin</a>
-                        </button>
+
 
                     </div>
 

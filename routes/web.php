@@ -3,6 +3,7 @@
 use App\Http\Controllers\DiemDanhController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\LopHocController;
+use App\Http\Controllers\MonHocController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ZoomController;
 use Illuminate\Support\Facades\Route;
@@ -79,10 +80,18 @@ Route::get('user/chi-tiet-lop-hoc/{malop}/{userid}',[LopHocController::class,'vi
 Route::get('user/online-class/{malop}',[ZoomController::class,'indexOnlineClass'])->name('user.viewOnlineClass');
 
 
+// môn học
+Route::get('admin/xem-ds-mon-hoc',[MonHocController::class,'index'])->name('admin.xemDSMonHoc');
+Route::get('admin/them-mon-hoc',[MonHocController::class,'createMonHocView'])->name('admin.formThemMonHoc');
+Route::post('admin/them-mon-hoc',[MonHocController::class,'themMonHoc'])->name('admin.themMonHoc');
+Route::get('admin/update-mon-hoc/{mamh}',[MonHocController::class,'updateMonHocView'])->name('admin.formupdateMonHoc');
+Route::post('admin/update-mon-hoc',[MonHocController::class,'update'])->name('admin.updateMonHoc');
+Route::delete('admin/delete-mon-hoc/{id}',[MonHocController::class,'delete'])->name('admin.deleteMonHoc');
 //Học viên
 Route::get('hocvien/dang-ki-lop-hoc',[LopHocController::class,'ViewDangKiLopHoc'])->name('hocvien.viewDangKiLopHoc');
 Route::post('hocvien/save-dang-ki-lop-hoc',[LopHocController::class,'dangKiLopHoc'])->name('hocvien.saveDangKiLopHoc');
 Route::get('hocvien/ds-lop-hoc/{masv}',[LopHocController::class,'danhSachLopHocHocVien'])->name('hocvien.xemDsLopHoc');
+
 //điểm danh
 // Route::get('/xu-ly-diem-danh', [\App\Http\Controllers\DiemDanhController::class, 'diemDanh'])->name('diemdanh');
 // Route::get('ghi-thong-tin-diem-danh/{malop}', [\App\Http\Controllers\DiemDanhController::class, 'ghiThongTinDiemDanh'])->name('ghiThongTinDiemDanh');

@@ -5,9 +5,9 @@
     @guest
         @if (Route::has('login'))
             <h1 class="d-flex justify-content-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-                            font-weight: bold">Chào mừng đến với hệ thống </h1>
+                                    font-weight: bold">Chào mừng đến với hệ thống </h1>
             <h2 class="text-danger d-flex justify-content-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-                            font-weight: bold">Bạn chưa đăng nhập</h2>
+                                    font-weight: bold">Bạn chưa đăng nhập</h2>
             <div class="d-flex justify-content-center" style="font-size: 250px; margin: 30px">
                 {{-- <i class="far fa-smile "></i> --}}
                 {{-- <i class="far fa-grin-squint-tears" ></i> --}}
@@ -25,10 +25,13 @@
                         @if (Auth::user()->level == 1)
                             <i class="fas fa-pen"></i> <a style="color:white"
                                 href="{{ route('hocvien.viewDangKiLopHoc') }}">Đăng kí lớp học</a>
-                        @else
+                        @elseif(Auth::user()->level==2)
                             <i class="fas fa-pen"></i> <a style="color:white"
                                 href="{{ route('giangvien.viewDangKiMoLop') }}">Đăng kí mở lớp</a>
+                        @else
+                            <a href="" style="color: white">=))</a>
                         @endif
+
                     </button>
                 </div>
                 <div class="col-sm" style="border: 1px solid black; height: 500px;">
@@ -44,6 +47,7 @@
     @endguest
 
     <script>
-        document.title="Trang chủ";
+        document.title = "Trang chủ";
+
     </script>
 @endsection
