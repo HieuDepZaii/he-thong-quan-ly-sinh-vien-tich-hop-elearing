@@ -64,15 +64,15 @@ Route::get('users/xem-thong-tin-nguoi-dung/{id}', [NguoiDungController::class,'x
 
 
 //Giảng viên
-Route::get('giangvien/dang-ki-mo-lop', [LopHocController::class,'ViewDangKiMoLop'])->name('giangvien.viewDangKiMoLop');
-Route::post('giangvien/save-lop-hoc', [LopHocController::class, 'saveLopHoc'])->name('giangvien.saveLopHoc');
-Route::get('giangvien/xem-ds-lop-hoc/{magv}',[LopHocController::class,'danhSachLopHoc'])->name('giangvien.dsLopHoc');
-Route::get('giangvien/ds-hoc-vien/{malop}',[LopHocController::class,'dshvLopHoc'])->name('giangvien.xemDSHocVien');
-Route::get('giangvien/tao-zoom-room/{malop}',[ZoomController::class,'createZoomCLassForm'])->name('giangvien.taoZoomClass');
-Route::post('giangvien/tao-zoom-room',[ZoomController::class,'createZoomClass'])->name('giangvien.saveZoomClass');
-Route::get('giangvien/sua-zoom-room/{malop}',[ZoomController::class,'editZoomClassForm'])->name('giangvien.editZoomClassForm');
-Route::post('giangvien/edit-zoom-room',[ZoomController::class,'editZoomClass'])->name('giangvien.editZoomClass');
-Route::delete('giangvien/delete-zoom-room/{id}',[ZoomController::class,'deleteZoomClass'] )->name('giangvien.deleteZoomClass');
+Route::get('giangvien/dang-ki-mo-lop', [LopHocController::class,'ViewDangKiMoLop'])->name('giangvien.viewDangKiMoLop')->middleware('giang-vien');
+Route::post('giangvien/save-lop-hoc', [LopHocController::class, 'saveLopHoc'])->name('giangvien.saveLopHoc')->middleware('giang-vien');
+Route::get('giangvien/xem-ds-lop-hoc/{magv}',[LopHocController::class,'danhSachLopHoc'])->name('giangvien.dsLopHoc')->middleware('giang-vien');
+Route::get('giangvien/ds-hoc-vien/{malop}',[LopHocController::class,'dshvLopHoc'])->name('giangvien.xemDSHocVien')->middleware('giang-vien');
+Route::get('giangvien/tao-zoom-room/{malop}',[ZoomController::class,'createZoomCLassForm'])->name('giangvien.taoZoomClass')->middleware('giang-vien');
+Route::post('giangvien/tao-zoom-room',[ZoomController::class,'createZoomClass'])->name('giangvien.saveZoomClass')->middleware('giang-vien');
+Route::get('giangvien/sua-zoom-room/{malop}',[ZoomController::class,'editZoomClassForm'])->name('giangvien.editZoomClassForm')->middleware('giang-vien');
+Route::post('giangvien/edit-zoom-room',[ZoomController::class,'editZoomClass'])->name('giangvien.editZoomClass')->middleware('giang-vien');
+Route::delete('giangvien/delete-zoom-room/{id}',[ZoomController::class,'deleteZoomClass'] )->name('giangvien.deleteZoomClass')->middleware('giang-vien');
 //xem lớp học
 Route::get('user/chi-tiet-lop-hoc/{malop}/{userid}',[LopHocController::class,'viewChiTietLopHoc'])->name('user.chiTietLopHoc');
 

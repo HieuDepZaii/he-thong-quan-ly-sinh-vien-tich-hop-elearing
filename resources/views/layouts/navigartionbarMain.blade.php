@@ -18,7 +18,7 @@
                 <a href="{{route('admin.xemDSMonHoc')}}">Quản lý môn học</a>
             @endif
         @endif
-
+        <a href="http://127.0.0.1:3000/home/{{Auth::user()->id}}" target="_blank">Chat</a>
     @endguest
 
     <div>

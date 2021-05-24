@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class ZoomController extends Controller
 {
-    public function __construct(){
-        $this->middleware('giang-vien');
-    }
+    // public function __construct(){
+    //     $this->middleware('giang-vien');
+    // }
     //
     public function indexOnlineClass($malop){
         $lopHoc=LopHoc::find($malop);
