@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\DiemDanhController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\InfomationController;
 use App\Http\Controllers\LopHocController;
 use App\Http\Controllers\MonHocController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ZoomController;
+use App\Models\ThongBao;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +25,8 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-   return view('trangchu');
+    $infomation=ThongBao::all();
+   return view('trangchu',['infomation' => $infomation]);
 })->name('trangchu');
 //Admin route
 Route::get('/admin/home', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.home')->middleware('admin');
@@ -92,6 +95,11 @@ Route::get('hocvien/dang-ki-lop-hoc',[LopHocController::class,'ViewDangKiLopHoc'
 Route::post('hocvien/save-dang-ki-lop-hoc',[LopHocController::class,'dangKiLopHoc'])->name('hocvien.saveDangKiLopHoc');
 Route::get('hocvien/ds-lop-hoc/{masv}',[LopHocController::class,'danhSachLopHocHocVien'])->name('hocvien.xemDsLopHoc');
 
+//Thông báo
+Route::get('admin/xem-ds-thong-bao',[InfomationController::class,'index'])->name('admin.xemDSThongBao');
+Route::get('admin/them-thong-bao',[InfomationController::class,'createView'])->name('admin.viewAddThongBao');
+Route::post('admin/them-thong-bao',[InfomationController::class,'create'])->name('admin.themThongBao');
+Route::delete('admin/xoa-thong-bao/{id}',[InfomationController::class,'delete'])->name('admin.xoaThongBao');
 //điểm danh
 // Route::get('/xu-ly-diem-danh', [\App\Http\Controllers\DiemDanhController::class, 'diemDanh'])->name('diemdanh');
 // Route::get('ghi-thong-tin-diem-danh/{malop}', [\App\Http\Controllers\DiemDanhController::class, 'ghiThongTinDiemDanh'])->name('ghiThongTinDiemDanh');

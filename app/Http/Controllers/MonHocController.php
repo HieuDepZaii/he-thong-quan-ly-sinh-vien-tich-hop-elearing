@@ -71,9 +71,13 @@ class MonHocController extends Controller
     }
     public function delete($id)
     {
-        $monhoc = MonHoc::findOrFail($id);
-        $monhoc->delete();
-        $msg = "đã xóa 1 môn";
+        try{
+            $monhoc = MonHoc::findOrFail($id);
+            $monhoc->delete();
+            $msg = "đã xóa 1 môn";
+        }catch(\Exception $e){
+            $msg="có lỗi, vui lòng thử lại";
+        }
         return redirect(route('admin.xemDSMonHoc'))->with('msg', $msg);
     }
 }

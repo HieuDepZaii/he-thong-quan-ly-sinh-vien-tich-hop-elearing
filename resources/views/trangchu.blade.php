@@ -5,9 +5,9 @@
     @guest
         @if (Route::has('login'))
             <h1 class="d-flex justify-content-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-                                    font-weight: bold">Chào mừng đến với hệ thống </h1>
+                                            font-weight: bold">Chào mừng đến với hệ thống </h1>
             <h2 class="text-danger d-flex justify-content-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-                                    font-weight: bold">Bạn chưa đăng nhập</h2>
+                                            font-weight: bold">Bạn chưa đăng nhập</h2>
             <div class="d-flex justify-content-center" style="font-size: 250px; margin: 30px">
                 {{-- <i class="far fa-smile "></i> --}}
                 {{-- <i class="far fa-grin-squint-tears" ></i> --}}
@@ -37,6 +37,15 @@
                 <div class="col-sm" style="border: 1px solid black; height: 500px;">
 
                     <h3 style="text-align: center"><i class="fa fa-bell"></i> Thông báo</h3>
+                    <div>
+                        <ul class="list-group ">
+                            @foreach ($infomation as $item)
+                            <li class="list-group-item">{{ $item->content }}</li>
+                            @endforeach
+                        </ul>
+
+                    </div>
+
                 </div>
                 <div class="col-sm" style="border: 1px solid black;height: 500px">
                     <img src="{{ asset('img/cloudlibrary-logo.jpg') }}" alt="cloudlibraty-logo" style="width: 100%">
