@@ -50,7 +50,7 @@
         }
     }
     $userID = getUserID($url);
-    echo $userID;
+    // echo $userID;
     checkUserID($userID, $malop);
     @endphp
     <script>

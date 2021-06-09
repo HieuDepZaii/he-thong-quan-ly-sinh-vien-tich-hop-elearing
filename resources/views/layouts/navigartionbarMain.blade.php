@@ -19,7 +19,9 @@
             @endif
         @endif
         <a href="http://127.0.0.1:3000/home/{{Auth::user()->id}}" target="_blank">Chat</a>
+        @if(Auth::user()->level == 3)
         <a href="{{route('admin.xemDSThongBao')}}">Quản lý thông báo</a>
+        @endif
     @endguest
 
     <div>

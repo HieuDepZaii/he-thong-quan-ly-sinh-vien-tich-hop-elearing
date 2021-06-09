@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class InfomationController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
     public function index(){
         $infomation=ThongBao::all();
         return view('thong-bao.index',['information'=>$infomation]);
