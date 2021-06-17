@@ -30,7 +30,8 @@
                             <i class="fas fa-pen"></i> <a style="color:white"
                                 href="{{ route('giangvien.viewDangKiMoLop') }}">Đăng kí mở lớp</a>
                         @else
-                            <a href="" style="color: white">=))</a>
+                            <a href="" style="color: white;text-decoration: none;
+                            ">Xin chào mừng bạn đến với hệ thống</a>
                         @endif
 
                     </button>
@@ -41,7 +42,7 @@
                     <div>
                         <ul class="list-group ">
                             @foreach ($infomation as $item)
-                            <li class="list-group-item">{{ $item->content }}</li>
+                            <li class="list-group-item"><i class="far fa-bell"></i> {{ $item->content }}</li>
                             @endforeach
                         </ul>
 
